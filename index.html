@@ -21,9 +21,12 @@
 		<h1>Simple Counter</h1>
 		<p>Current Count: <span id="count">0</span></p>
 		<button id="increment">Increment</button>
+		<p id="user-info"></p>
 		
 		<script>
 			$(document).ready(function() {
+				const user = tg.initDataUnsafe.user;
+				$("#user-info").text(count);
 				let count = 0;
 				$("#increment").click(function() {
 					count++;
