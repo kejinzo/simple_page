@@ -22,21 +22,19 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	</head>
 	<body>
-		<h1>Simple Counter2</h1>
-		<p>Current Count: <span id="count">0</span></p>
-		<button id="increment">Increment</button>
-		<p id="username">123</p>
-		
+		<h1>Telegram WebApp Test</h1>
+		<p id="webapp-status">Checking WebApp...</p>
+
 		<script>
-			const tg = window.Telegram.WebApp;
-			$(document).ready(function() {
-				$("#username").text("456");
-				let count = 0;
-				$("#increment").click(function() {
-					count++;
-					$("#count").text(count);
-				});
-			});
+			// Проверяем наличие объекта Telegram.WebApp
+			if (window.Telegram && window.Telegram.WebApp) {
+				document.getElementById('webapp-status').innerText = "Telegram WebApp is available!";
+				const tg = window.Telegram.WebApp;
+				// Отображаем информацию о пользователе
+				document.getElementById('webapp-status').innerText += `\nUser: ${tg.initDataUnsafe.user.first_name}`;
+			} else {
+				document.getElementById('webapp-status').innerText = "Telegram WebApp is NOT available!";
+			}
 		</script>
 	</body>
 </html>
